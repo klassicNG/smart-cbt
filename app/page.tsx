@@ -1,8 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import Link from 'next/link';
-import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, PenTool, Camera, ImagePlus, Loader, AlertTriangle, Home, Zap, Printer, Brain, X, Crosshair, User, Activity, BarChart3, AlertCircle, ChevronRight, Settings, Timer } from 'lucide-react';
+import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, Settings, ChevronRight, Timer, BarChart3, AlertCircle, Home, Activity, User, PenTool } from 'lucide-react';
 
 type Question = {
   question: string;
@@ -226,10 +225,6 @@ export default function Dashboard() {
                 <button onClick={() => setStep('upload')} className={`w-full flex items-center gap-3 px-5 py-4 rounded-2xl font-medium text-sm transition-all ${step === 'upload' || step === 'config' ? 'bg-white text-[#3B4638] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-[#F3EFEA]' : 'bg-transparent text-[#7D7873] hover:bg-white hover:shadow-sm'}`}>
                   <Layers className="w-4 h-4" /> E-Exam Simulator
                 </button>
-                {/* NEW WRITTEN EXAM LINK */}
-                <Link href="/written" className="w-full flex items-center gap-3 px-5 py-4 rounded-2xl font-medium text-sm transition-all bg-transparent text-[#7D7873] hover:bg-white hover:shadow-sm border border-transparent">
-                  <PenTool className="w-4 h-4" /> Written Exam Grader
-                </Link>
               </nav>
             </div>
             
@@ -376,11 +371,11 @@ export default function Dashboard() {
                     <div className="flex items-center gap-3">
                        {loading ? (
                         <span className="text-sm font-semibold text-[#3B4638] animate-pulse flex items-center gap-2">
-                          <Loader className="w-4 h-4 animate-spin" /> Parsing initial text context...
+                          <Loader2 className="w-4 h-4 animate-spin" /> Parsing initial text context...
                         </span>
                       ) : fetchingBatch ? (
                         <span className="text-xs font-semibold text-[#3B4638] flex items-center gap-2 px-4 py-2 bg-[#F6F7F6] rounded-xl border border-[#EAE6DF]">
-                          <Loader className="w-3.5 h-3.5 animate-spin" /> Generating Questions {(chunkIndex * 10) + 1}-{(chunkIndex * 10) + 10}...
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Questions {(chunkIndex * 10) + 1}-{(chunkIndex * 10) + 10}...
                         </span>
                       ) : isExamComplete ? (
                          <span className="text-xs font-semibold text-[#486D51] flex items-center gap-2 px-4 py-2 bg-[#EAF3EA] rounded-xl border border-[#C5E0CC]">

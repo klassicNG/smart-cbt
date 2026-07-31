@@ -3,7 +3,7 @@ import { generateText } from 'ai';
 import { extractText } from 'unpdf';
 import dns from 'node:dns';
 
-export const maxDuration = 60;
+export const maxDuration = 60; 
 export const dynamic = 'force-dynamic';
 
 dns.setDefaultResultOrder('ipv4first');
@@ -35,10 +35,10 @@ if (typeof (Promise as any).withResolvers !== 'function') {
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
-
+        
         const files = formData.getAll('files') as File[];
         const rawNotes = formData.get('notes') as string | null;
-
+        
         const batchSize = formData.get('batchSize') || '10';
         const chunkIndex = parseInt(formData.get('chunkIndex') as string || '0');
 
@@ -82,16 +82,16 @@ export async function POST(req: Request) {
         // --- AI GENERATION WITH SAFEGUARDS ---
         const result = await generateText({
             model: customGoogle('models/gemma-4-26b-a4b-it'),
-            maxRetries: 0,
-            maxTokens: 4000,
+            maxRetries: 0, 
+            maxTokens: 4000, 
             system: `You are an expert university examiner. Read the provided course material and generate exactly ${batchSize} high-yield multiple-choice exam questions. Return ONLY raw JSON in this exact format: {"quiz": [{"question": "...", "options": ["A", "B", "C", "D"], "answer": "...", "explanation": "...", "topic": "..."}]}. The "topic" field must be a short, 1-3 word category summarizing the specific concept tested. Do not include markdown formatting or backticks.`,
-            prompt: textChunk,
+            prompt: textChunk, 
         });
 
         let rawResponse = result.text;
-
+        
         rawResponse = rawResponse.replace(/```json/gi, '').replace(/```/gi, '').trim();
-
+        
         const jsonMatch = rawResponse.match(/\{[\s\S]*\}/);
         if (jsonMatch) {
             rawResponse = jsonMatch[0];
@@ -105,12 +105,12 @@ export async function POST(req: Request) {
             return new Response(JSON.stringify({ error: "AI generated malformed JSON. Retrying..." }), { status: 500 });
         }
 
-        return new Response(JSON.stringify(parsedJson), {
+        return new Response(JSON.stringify(parsedJson), { 
             status: 200,
             headers: { 'Content-Type': 'application/json' }
         });
 
-        // THIS IS THE SECTION YOU MISSED
+    // THIS IS THE SECTION YOU MISSED
     } catch (error) {
         console.error("Gemma API Error:", error);
         return new Response(JSON.stringify({ error: "Failed to process document" }), { status: 500 });
