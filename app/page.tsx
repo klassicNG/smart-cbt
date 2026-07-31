@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Link from 'next/link';
-import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, PenTool, Camera, ImagePlus, Loader, AlertTriangle, Home, Zap, Printer, Brain, X, Crosshair, User, Activity } from 'lucide-react';
+import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, PenTool, Camera, ImagePlus, Loader, AlertTriangle, Home, Zap, Printer, Brain, X, Crosshair, User, Activity, BarChart3, AlertCircle, ChevronRight, Settings, Timer } from 'lucide-react';
 
 type Question = {
   question: string;
