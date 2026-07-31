@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Link from 'next/link';
-import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, Settings, ChevronRight, Timer, BarChart3, AlertCircle, Home, Activity, User, PenTool } from 'lucide-react';
+import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, PenTool, Camera, ImagePlus, Loader, AlertTriangle, Home, Zap, Printer, Brain, X, Crosshair, User } from 'lucide-react';
 
 type Question = {
   question: string;
@@ -376,11 +376,11 @@ export default function Dashboard() {
                     <div className="flex items-center gap-3">
                        {loading ? (
                         <span className="text-sm font-semibold text-[#3B4638] animate-pulse flex items-center gap-2">
-                          <Loader2 className="w-4 h-4 animate-spin" /> Parsing initial text context...
+                          <Loader className="w-4 h-4 animate-spin" /> Parsing initial text context...
                         </span>
                       ) : fetchingBatch ? (
                         <span className="text-xs font-semibold text-[#3B4638] flex items-center gap-2 px-4 py-2 bg-[#F6F7F6] rounded-xl border border-[#EAE6DF]">
-                          <Loader2 className="w-3.5 h-3.5 animate-spin" /> Generating Questions {(chunkIndex * 10) + 1}-{(chunkIndex * 10) + 10}...
+                          <Loader className="w-3.5 h-3.5 animate-spin" /> Generating Questions {(chunkIndex * 10) + 1}-{(chunkIndex * 10) + 10}...
                         </span>
                       ) : isExamComplete ? (
                          <span className="text-xs font-semibold text-[#486D51] flex items-center gap-2 px-4 py-2 bg-[#EAF3EA] rounded-xl border border-[#C5E0CC]">
