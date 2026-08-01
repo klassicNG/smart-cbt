@@ -37,10 +37,6 @@ Create a .env.local file in the root directory and add your Google Gemini API ke
 4. Start the development server:
    ```bash
    npm run dev
-
    
-5. Enter this URL in your browser:
-   ```bash
-   http://localhost:3000
 
-4. Open http://localhost:3000 in your browser.
+5. Open http://localhost:3000 in your browser.
