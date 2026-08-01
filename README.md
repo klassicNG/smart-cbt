@@ -23,20 +23,20 @@ SmartCBT is an AI-powered study companion that helps university students prepare
 1. Clone the repository:
    ```bash
    git clone [https://github.com/klassicNG/smart-cbt.git](https://github.com/klassicNG/smart-cbt.git)
+   
 Install dependencies:
-
-Bash
+```bash
 npm install
 
 2. Set up your environment variables:
 Create a .env.local file in the root directory and add your Google Gemini API key:
 
-Code snippet
+```code
 GOOGLE_GENERATIVE_AI_API_KEY=your_api_key_here
 
 3. Start the development server:
 
-Bash
+```bash
 npm run dev
 
 4. Open http://localhost:3000 in your browser.
