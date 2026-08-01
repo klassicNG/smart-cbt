@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { FileText, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, Settings, ChevronRight, Timer, BarChart3, AlertCircle, Home, Activity, User, PenTool } from 'lucide-react';
+import { FileText, Loader2, UploadCloud, CheckCircle2, XCircle, BookOpen, Layers, Settings, ChevronRight, Timer, BarChart3, AlertCircle, Home, Activity, User, PenTool } from 'lucide-react';
 
 type Question = {
   question: string;
